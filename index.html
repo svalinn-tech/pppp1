@@ -1,4 +1,5 @@
-вот тееб код сайта  <!doctype html>
+
+<!doctype html>
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
@@ -34,7 +35,6 @@
     padding: 40px 32px 80px;
   }
 
-  /* ── HEADER ── */
   .page-header {
     display: flex;
     align-items: center;
@@ -65,7 +65,6 @@
   .btn-blue:hover { background: #2160E0; }
   .btn-blue:active { transform: scale(0.98); }
 
-  /* ── STAT CARDS ── */
   .stats-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -103,12 +102,12 @@
   .stat-card.earned .stat-value { color: var(--green-dark); }
   .stat-card.paid .stat-value { color: var(--text); }
 
-  /* ── REQUEST PAYOUT CARD ── */
   .panels-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 24px;
     margin-bottom: 24px;
+    max-width: 680px;
   }
   .panel {
     background: #fff;
@@ -155,7 +154,6 @@
     justify-content: flex-end;
   }
 
-  /* ── HISTORY CARD ── */
   .history-card {
     background: #fff;
     border: 1px solid var(--border);
@@ -223,14 +221,12 @@
     font-size: 15px;
   }
 
-  /* ── APP SHELL LAYOUT ── */
   .app {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
   }
 
-  /* ── TOP HEADER ── */
   .topbar {
     display: flex;
     align-items: center;
@@ -323,7 +319,6 @@
   .user-stat svg { width: 15px; height: 15px; }
   .user-chevron { width: 16px; height: 16px; color: #8A92A6; flex-shrink: 0; }
 
-  /* ── BODY: SIDEBAR + CONTENT ── */
   .app-body {
     display: flex;
     flex: 1;
@@ -439,7 +434,6 @@
   .collapse-btn:hover { background: rgba(255,255,255,0.05); color: #fff; }
   .collapse-btn svg { width: 17px; height: 17px; flex-shrink: 0; }
 
-  /* MAIN CONTENT */
   .main-content {
     flex: 1;
     min-width: 0;
@@ -447,7 +441,6 @@
     background: #fff;
   }
 
-  /* ── COLLAPSED SIDEBAR STATE ── */
   .sidebar.collapsed { width: 84px; padding: 20px 12px; }
   .sidebar.collapsed .label,
   .sidebar.collapsed .nav-item-ext .ext-arrow { display: none; }
@@ -460,10 +453,9 @@
   }
   .sidebar.collapsed .collapse-btn svg { transform: rotate(180deg); }
 
-  /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
     .stats-grid { grid-template-columns: 1fr; }
-    .panels-grid { grid-template-columns: 1fr; }
+    .panels-grid { grid-template-columns: 1fr; max-width: 100%; }
     .table-head { display: none; }
     .page-title { font-size: 26px; }
     .topnav { display: none; }
@@ -493,8 +485,6 @@
 <body>
 
 <div class="app">
-
-  <!-- TOP HEADER -->
   <header class="topbar">
     <a href="https://my.winwinbot.com/ru/partner/main" class="brand">
       <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h11l5 5v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M16 3v5h5"/></svg>
@@ -536,8 +526,6 @@
   </header>
 
   <div class="app-body">
-
-    <!-- SIDEBAR -->
     <aside class="sidebar">
       <button class="sidebar-section" type="button">
         <span class="sidebar-section-icon">
@@ -558,6 +546,10 @@
         <a class="nav-item active" href="https://my.winwinbot.com/ru/partner/payouts">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 19h14"/></svg>
           <span class="label">Выплаты</span>
+        </a>
+        <a class="nav-item" href="#">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+          <span class="label">Оплатить тариф клиенту</span>
         </a>
         <a class="nav-item" href="https://my.winwinbot.com/ru/partner/materials">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"/></svg>
@@ -589,17 +581,12 @@
       </div>
     </aside>
 
-    <!-- MAIN CONTENT (exactly as in the supplied document, unchanged) -->
     <main class="main-content">
       <div class="wrap">
-
-        <!-- HEADER: title + new blue button, top right -->
         <div class="page-header">
           <h1 class="page-title">Выплаты</h1>
-          <button class="btn-blue" type="button">Оплатить тариф клиента</button>
         </div>
 
-        <!-- STAT CARDS -->
         <div class="stats-grid">
           <div class="stat-card available">
             <div class="stat-label">Доступно к выводу</div>
@@ -615,7 +602,6 @@
           </div>
         </div>
 
-        <!-- REQUEST PAYOUT PANEL + PAY CLIENT TARIFF PANEL -->
         <div class="panels-grid">
           <div class="panel">
             <div class="panel-title">Запросить выплату</div>
@@ -626,19 +612,8 @@
               <button class="btn-blue" type="button">Запросить выплату</button>
             </div>
           </div>
-
-          <div class="panel">
-            <div class="panel-title">Оплатить тариф клиента</div>
-            <p class="panel-sub">Конвертируйте ваше партнерское вознаграждение в оплату</p>
-            <label class="field-label">Укажите почту пользователя</label>
-            <input class="field-input" type="email" placeholder="почта, того чей аккаунт оплачиваете">
-            <div class="panel-actions">
-              <button class="btn-blue" type="button">Оплатить тариф</button>
-            </div>
-          </div>
         </div>
 
-        <!-- HISTORY -->
         <div class="history-card">
           <div class="history-head">
             <div class="history-title">История операций</div>
@@ -654,15 +629,12 @@
           </div>
           <div class="table-empty">Операций пока нет</div>
         </div>
-
       </div>
     </main>
-
   </div>
 </div>
 
 <script>
-  // simple tab toggle, matches original interactive behavior
   document.querySelectorAll('.tab').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
@@ -670,7 +642,6 @@
     });
   });
 
-  // thousand-separator formatting on the amount input
   document.querySelectorAll('.field-input[inputmode="numeric"]').forEach(input => {
     input.addEventListener('input', () => {
       const digits = input.value.replace(/\D/g, '');
@@ -678,7 +649,6 @@
     });
   });
 
-  // sidebar collapse toggle
   const sidebar = document.querySelector('.sidebar');
   const collapseBtn = document.getElementById('collapseBtn');
   collapseBtn.addEventListener('click', () => {
@@ -687,25 +657,4 @@
 </script>
 
 </body>
-</html> 
-
-твоя задача 
-
-
-где написано Оплатить тариф клиента
-Конвертируйте ваше партнерское вознаграждение в оплату
-Укажите почту пользователя
-Оплатить тариф 
-
-это удалем 
-
-также кнопку Оплатить тариф клиента
-Конвертируйте ваше партнерское вознаграждение в оплату
-Укажите почту пользователя
-кнопку в верзнем правом углу Оплатить тариф клиента тоже убираем
-
-в боковом меню слева 
-
-после слова выплаты но перед словом промо-маерила добавляем плашку "оплатить тариф клиенту" 
-
-пришли финальную страницу в html
+</html>
